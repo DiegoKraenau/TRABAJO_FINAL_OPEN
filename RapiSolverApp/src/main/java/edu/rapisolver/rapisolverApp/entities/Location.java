@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name="location")
@@ -27,7 +27,7 @@ public class Location implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String locationId;
+	private Integer locationId;
 	
 
 	@Column(name="country", nullable = false, length = 50)
@@ -50,12 +50,12 @@ public class Location implements Serializable{
 	private List<Supplier> suppliers;
 
 
-	public String getLocationId() {
+	public Integer getLocationId() {
 		return locationId;
 	}
 
 
-	public void setLocationId(String locationId) {
+	public void setLocationId(Integer locationId) {
 		this.locationId = locationId;
 	}
 

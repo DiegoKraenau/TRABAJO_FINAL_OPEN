@@ -25,28 +25,28 @@ public class ServiceCategory implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String categoryId;
+	private Integer categoryId;
 	
 	@Size(min=3, message = "La categoria del servicio debe tener minimo 3 caracteres")
 	@Column(name="categoryName", nullable = false, length = 50)
 	private String categoryName;
 	
 	@OneToMany(mappedBy = "serviceCategory",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Service> services;
+	private List<Servicio> services;
 
-	public List<Service> getServices() {
+	public List<Servicio> getServices() {
 		return services;
 	}
 
-	public void setServices(List<Service> services) {
+	public void setServices(List<Servicio> services) {
 		this.services = services;
 	}
 
-	public String getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(String categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 

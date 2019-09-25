@@ -2,12 +2,17 @@
 package edu.rapisolver.rapisolverApp.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -56,8 +61,13 @@ public class Supplier  implements Serializable{
 	@Column(name="gender", nullable = false, length = 20)
 	private String gender;
 	
+	
 	@OneToOne
 	private Location location;
+	
+	@OneToMany(mappedBy = "supplierDetail", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<DetalleServiceSupplier> listaDetails;
+
 
 	public Integer getIdSupplier() {
 		return idSupplier;
@@ -138,7 +148,16 @@ public class Supplier  implements Serializable{
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	
+
+	public List<DetalleServiceSupplier> getListaDetails() {
+		return listaDetails;
+	}
+
+	public void setListaDetails(List<DetalleServiceSupplier> listaDetails) {
+		this.listaDetails = listaDetails;
+	}
+
+
 	
 	
 

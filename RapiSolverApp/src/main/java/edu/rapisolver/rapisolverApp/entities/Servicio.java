@@ -1,6 +1,7 @@
 package edu.rapisolver.rapisolverApp.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,13 +10,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="service")
-public class Service implements Serializable{
+@Table(name="servicio")
+public class Servicio implements Serializable{
 	
 	/**
 	 * 
@@ -24,7 +27,7 @@ public class Service implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String serviceId;
+	private Integer serviceId;
 	
 	@Size(min=3, message = "El nombre del servicio debe tener minimo 3 caracteres")
 	@Column(name="serviceName", nullable = false, length = 50)
@@ -40,12 +43,28 @@ public class Service implements Serializable{
 	
 	@OneToOne
 	private ServiceCategory serviceCategory;
+	
+	
+	  
+	@OneToMany(mappedBy = "servicioDetail", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<DetalleServiceSupplier> listaDetails;
 
-	public String getServiceId() {
+
+
+
+	public List<DetalleServiceSupplier> getListaDetails() {
+		return listaDetails;
+	}
+
+	public void setListaDetails(List<DetalleServiceSupplier> listaDetails) {
+		this.listaDetails = listaDetails;
+	}
+
+	public Integer getServiceId() {
 		return serviceId;
 	}
 
-	public void setServiceId(String serviceId) {
+	public void setServiceId(Integer serviceId) {
 		this.serviceId = serviceId;
 	}
 

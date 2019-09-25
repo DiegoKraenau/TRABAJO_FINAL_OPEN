@@ -1,16 +1,21 @@
 package edu.rapisolver.rapisolverApp.entities;
 
+import java.io.Serializable;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="customer")
-public class Customer{
+public class Customer implements Serializable{
 
 	/**
 	 * 
@@ -44,6 +49,7 @@ public class Customer{
 	@Size(min=3, message = "Las contraseñas deben tener minimo 3 caracteres")
 	@Column(name="password", nullable = false, length = 20)
 	private String password;
+
 	
 	
 	@Column(name="gender", nullable = false, length = 20)

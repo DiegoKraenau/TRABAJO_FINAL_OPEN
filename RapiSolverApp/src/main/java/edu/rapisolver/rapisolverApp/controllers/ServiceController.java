@@ -25,6 +25,12 @@ public class ServiceController {
 	@Autowired
 	private IServiceService servicioService;
 	
+	@Autowired
+	private ISupplierService supplierService;
+	
+	@Autowired
+	private IDetalleServicieSupplierService detalleService;
+	
 	
 	
 	@GetMapping("/list")
@@ -69,14 +75,16 @@ public class ServiceController {
 			Model model) {
 		try {
 			Optional<Servicio> servicio = servicioService.findById(id);
-	
+			Optional<DetalleServiceSupplier> detalle=detalleService.findById(id);
 			
 			if(!servicio.isPresent()) {
 				model.addAttribute("info", "Alumno no existe");
 				return "redirect:/servicio/list";
 			}
-			else
+			else {
 				model.addAttribute("servicio",servicio.get());
+				model.addAttribute("detalle",detalle.get());
+			}
 		 
 		} catch (Exception e) {
 			model.addAttribute("error",e.getMessage());

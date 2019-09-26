@@ -13,7 +13,7 @@
 					<li class="list-group-item" th:text="'Nombre : '+${servicio.serviceName}"></li>
 					<li class="list-group-item" th:text="'Categoria : '+${servicio.serviceCategory.categoryName}"></li>
 					<li class="list-group-item" th:text="'Costo : '+${servicio.serviceCost}"></li>
-					
+					<li class="list-group-item" th:text="'Supplier : '+${detalle.supplierDetail.name}"></li>
 					
 				</ul>
 				<a th:href="@{/servicio/list}" class="btn btn-success">Regresar</a>

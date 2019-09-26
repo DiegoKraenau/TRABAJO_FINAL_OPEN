@@ -54,11 +54,5 @@ public class DetalleServiceSupplier implements Serializable{
 	public void setDetailId(Integer detailId) {
 		this.detailId = detailId;
 	}
-	
-	
-	
-	
-	
-	
 
 }

@@ -48,6 +48,9 @@ public class Location implements Serializable{
 	
 	@OneToMany(mappedBy = "location", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Supplier> suppliers;
+	
+	@OneToMany(mappedBy = "location", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Customer> customers;
 
 
 	public Integer getLocationId() {
@@ -109,6 +112,14 @@ public class Location implements Serializable{
 		this.suppliers = suppliers;
 	}
 
-	
+
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
+	}
 
 }

@@ -1,7 +1,6 @@
 package edu.rapisolver.rapisolverApp.service;
 
 
-import java.util.List;
 import java.util.Optional;
 
 import edu.rapisolver.rapisolverApp.entities.DetalleServiceSupplier;

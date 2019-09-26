@@ -58,9 +58,4 @@ public class ServiceCategory implements Serializable{
 		this.categoryName = categoryName;
 	}
 	
-	
-	
-
-	
-	
 }

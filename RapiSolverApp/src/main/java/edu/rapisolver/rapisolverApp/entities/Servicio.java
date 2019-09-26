@@ -10,9 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -37,20 +37,15 @@ public class Servicio implements Serializable{
 	@Column(name="serviceDescription", nullable = false, length = 400)
 	private String serviceDescription;
 	
-	
 	@Column(name="serviceCost", nullable = false)
 	private double serviceCost;
 	
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name = "category_id")
 	private ServiceCategory serviceCategory;
 	
-	
-	  
 	@OneToMany(mappedBy = "servicioDetail", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<DetalleServiceSupplier> listaDetails;
-
-
-
 
 	public List<DetalleServiceSupplier> getListaDetails() {
 		return listaDetails;

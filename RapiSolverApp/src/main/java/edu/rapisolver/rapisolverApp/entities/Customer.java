@@ -9,7 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -50,12 +51,13 @@ public class Customer implements Serializable{
 	@Column(name="password", nullable = false, length = 20)
 	private String password;
 
-	
-	
 	@Column(name="gender", nullable = false, length = 20)
 	private String gender;
 
-
+	@ManyToOne
+	@JoinColumn(name = "location_id")
+	private Location location;
+	
 	public Integer getIdCustomer() {
 		return idCustomer;
 	}
@@ -134,7 +136,16 @@ public class Customer implements Serializable{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
+
+
+	public Location getLocation() {
+		return location;
+	}
+
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 	
 
 }

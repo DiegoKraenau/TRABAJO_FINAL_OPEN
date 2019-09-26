@@ -2,6 +2,7 @@ package edu.rapisolver.rapisolverApp.service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import edu.rapisolver.rapisolverApp.entities.DetalleServiceSupplier;
 
@@ -9,5 +10,5 @@ import edu.rapisolver.rapisolverApp.entities.DetalleServiceSupplier;
 
 public interface IDetalleServicieSupplierService   extends CrudService<DetalleServiceSupplier>{
 
-	 List<DetalleServiceSupplier> findServicesConSupplier() throws Exception;
+	Optional<DetalleServiceSupplier> findBydetailId(Integer id) throws Exception;
 }

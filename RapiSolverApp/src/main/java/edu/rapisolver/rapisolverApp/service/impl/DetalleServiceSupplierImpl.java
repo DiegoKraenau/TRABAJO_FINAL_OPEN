@@ -47,9 +47,13 @@ public class DetalleServiceSupplierImpl  implements IDetalleServicieSupplierServ
 	}
 
 	@Override
-	public List<DetalleServiceSupplier> findServicesConSupplier() throws Exception {
+	public Optional<DetalleServiceSupplier> findBydetailId(Integer id) throws Exception {
 		// TODO Auto-generated method stub
-		return detalleServiceSupplierRepository.findServicesConSupplier();
+		return detalleServiceSupplierRepository.findBydetailId(id);
 	}
+
+	
+	
+
 
 }

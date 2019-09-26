@@ -48,6 +48,14 @@ public class ServiceServiceImpl implements IServiceService {
 		return serviceRepository.findAll();
 	}
 
+	@Override
+	public List<Servicio> findByserviceName(String serviceName) throws Exception {
+		// TODO Auto-generated method stub
+		return serviceRepository.findByserviceName(serviceName);
+	}
+
+	
+
 
 
 	

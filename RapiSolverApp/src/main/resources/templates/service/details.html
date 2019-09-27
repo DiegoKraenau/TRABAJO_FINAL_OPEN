@@ -8,15 +8,31 @@
 		<div class="card">
 			<div class="card-header text-white bg-secondary">Datos Servicio</div>
 			<div class="card-body">
+				<h3>Service:</h3>
 				<ul class="list-group">
 					<li class="list-group-item" th:text="'Servicio : '+${servicio.serviceId}"></li>
 					<li class="list-group-item" th:text="'Nombre : '+${servicio.serviceName}"></li>
 					<li class="list-group-item" th:text="'Categoria : '+${servicio.serviceCategory.categoryName}"></li>
 					<li class="list-group-item" th:text="'Costo : '+${servicio.serviceCost}"></li>
-					<li class="list-group-item" th:text="'Supplier : '+${detalle.supplierDetail.name}"></li>
+					
 					
 				</ul>
-				<a th:href="@{/servicio/list}" class="btn btn-success">Regresar</a>
+				<br>
+				<h3>Supplier:</h3>
+				<ul class="list-group">
+					<li class="list-group-item" th:text="'Codigo : '+${detalle.supplierDetail.idSupplier}"></li>
+					<li class="list-group-item" th:text="'Nombre : '+${detalle.supplierDetail.name}"></li>
+					<li class="list-group-item" th:text="'Apellido : '+${detalle.supplierDetail.lastname}"></li>
+					<li class="list-group-item" th:text="'Correo : '+${detalle.supplierDetail.email}"></li>
+					<li class="list-group-item" th:text="'Telefono : '+${detalle.supplierDetail.phone}"></li>
+					<li class="list-group-item" th:text="'Age : '+${detalle.supplierDetail.age}"></li>
+					<li class="list-group-item" th:text="'Compania : '+${detalle.supplierDetail.nameCompany}"></li>
+					<li class="list-group-item" th:text="'Location : '+${detalle.supplierDetail.location.country}"></li>
+					
+				</ul>
+				<br>
+				<a th:href="@{/service/list}" class="btn btn-success">Regresar</a>
+				
 			</div>
 		</div>
 		

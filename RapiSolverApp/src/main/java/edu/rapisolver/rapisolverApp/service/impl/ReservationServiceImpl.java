@@ -20,12 +20,14 @@ public class ReservationServiceImpl implements IReservationService{
 	private IReservationRepository reservationReporitory;
 	
 	@Override
+	@Transactional
 	public Reservation save(Reservation t) throws Exception {
 		
 		return reservationReporitory.save(t);
 	}
 
 	@Override
+	@Transactional
 	public void deleteById(Integer id) throws Exception {
 		
 		reservationReporitory.deleteById(id);

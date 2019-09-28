@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+	<div class="container">
+		<div class="card">
+		<div class="card-header text-white bg-secondary">Lista de categorias</div>
+		<div class="card-body">
+			<div><a href="@{/category/create}" class="btn btn-success">Registrar</a></div>
+			<div class="table responsive">
+				<table class="table table-striped">
+					<thead class="thead-dark">
+						<tr>
+							<th>Id</th>
+							<th>Nombre de Categoria</th>								
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="categoria:${listadoCategorias}" >
+							<td th:text="${categoria.categoryId}"></td>
+							<td th:text="${categoria.categoryName}"></td>				
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		</div>
+	</div>
+	<footer th:replace="layout/layout :: footer"></footer>
+</body>
+
+
+</html>

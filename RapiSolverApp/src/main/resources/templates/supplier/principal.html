@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head"></head>
+<meta charset="ISO-8859-1">
+<title>RapiSolver</title>
+
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+			<button class="navbar-toggler " type="button" data-toggle="collapse" 
+				data-target="#navbarToggerRapiSolver" 
+				aria-controls="navbarToggerRapiSolver" 
+				aria-expanded="false" 
+				aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+    		</button>
+    		<div class="collapse navbar-collapse "  id="navbarToggerRapiSolver">
+    			<a class="navbar-brand" th:href="@{/supplier/principal}">RapiSolver</a>
+    			<ul class="navbar-nav mr-auto mt-2 mt-lg-0 "> 
+    				<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" th:href="@{/supplier/sesion}">Mi perfil</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" th:href="@{/service/list}">Buscar Servicio</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" th:href="@{/}">Agregar Servicio</a>
+          			</li>
+    				
+					<a th:href="@{/}" class="btn btn-danger">Cerrar Sesion</a>
+    			</ul> 
+    		</div> 		
+    	</nav>
+</body>
+</html>

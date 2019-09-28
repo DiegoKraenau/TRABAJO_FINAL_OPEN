@@ -14,32 +14,27 @@
 
 <header th:fragment="header">
 		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" 
+			<button class="navbar-toggler " type="button" data-toggle="collapse" 
 				data-target="#navbarToggerRapiSolver" 
 				aria-controls="navbarToggerRapiSolver" 
 				aria-expanded="false" 
 				aria-label="Toggle navigation">
     			<span class="navbar-toggler-icon"></span>
     		</button>
-    		<div class="collapse navbar-collapse" id="navbarToggerRapiSolver">
+    		<div class="collapse navbar-collapse "  id="navbarToggerRapiSolver">
     			<a class="navbar-brand" th:href="@{/}">RapiSolver</a>
-    			<ul class="navbar-nav mr-auto mt-2 mt-lg-0"> 
+    			<ul class="navbar-nav mr-auto mt-2 mt-lg-0 "> 
     				<li class="nav-item">
-    					<a class="nav-link text-white" href="#listado" 
-    						th:href="@{/alumnos/list}">Iniciar Sesion</a>
-    				</li>
-    				<li class="nav-item">
-    					<a class="nav-link text-white" href="#listado" 
-    						th:href="@{/service/list}">Buscar Servicio</a>
-    				</li>
-    				<li class="nav-item">
-    					<a class="nav-link text-white" href="#listado" 
-    						th:href="@{/alumnos/list}">Crear Servicio </a>
-    				</li>
-    				<li class="nav-item">
-    					<a class="nav-link text-white" href="#listado" 
-    						th:href="@{/alumnos/list}">Buscar Personas</a>
-    				</li>
+            			<a class="nav-link js-scroll-trigger" th:href="@{/supplier/sesion}">Iniciar Sesion</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" th:href="@{/}">Servicios</a>
+          			</li>
+          			<li class="nav-item">
+            			<a class="nav-link js-scroll-trigger" th:href="@{/}">Equipo</a>
+          			</li>
+    				
+    			
     			</ul> 
     		</div> 		
     	</nav>

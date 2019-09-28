@@ -14,5 +14,6 @@ import edu.rapisolver.rapisolverApp.entities.Servicio;
 public interface IServiceRepository extends JpaRepository<Servicio, Integer>{
 
 	public List<Servicio> findByserviceName(String serviceName);
+	public List<Servicio> findByserviceCategory(String serviceCategory);
 	
 }

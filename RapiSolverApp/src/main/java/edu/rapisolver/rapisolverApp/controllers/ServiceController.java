@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,7 +16,6 @@ import edu.rapisolver.rapisolverApp.entities.DetalleServiceSupplier;
 import edu.rapisolver.rapisolverApp.entities.Servicio;
 import edu.rapisolver.rapisolverApp.service.IDetalleServicieSupplierService;
 import edu.rapisolver.rapisolverApp.service.IServiceService;
-import edu.rapisolver.rapisolverApp.service.ISupplierService;
 
 @Controller
 @RequestMapping("/service")
@@ -24,13 +24,28 @@ public class ServiceController {
 	@Autowired
 	private IServiceService servicioService;
 	
-	@Autowired
-	private ISupplierService supplierService;
+	//@Autowired
+	//private ISupplierService supplierService;
 	
 	@Autowired
 	private IDetalleServicieSupplierService detalleService;
 	
+	@GetMapping("/create")
+	public String registrarServicio(Model model) {
+		
+		return "/service/create";
+	}
 	
+	@PostMapping("/create")
+	public String registrarServicio(Model model, Servicio s) {
+		
+		try {
+			model.addAttribute("registroServicios", servicioService.save(s));
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
+		return "/service/list";
+	}
 	
 	@GetMapping("/list")
 	public String listarAlumnos(Model model) {

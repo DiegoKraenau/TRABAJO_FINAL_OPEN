@@ -97,6 +97,35 @@ public class ServiceController {
 		return "/service/list";
 	}
 	
+	@GetMapping("/searchByServiceCategory")
+	public String buscarPorServicioCategoria(Model model,@RequestParam("servicioCategoria") String servicioCategoria) {
+		
+		
+		try {
+			if(!servicioCategoria.isEmpty()){
+				List<Servicio> servicios = servicioService.findByserviceCategory(servicioCategoria);
+				if(!servicios.isEmpty())
+					model.addAttribute("listadoServicios",servicios);
+				else {
+					model.addAttribute("info","No existen categorias con ese nombre");
+					model.addAttribute("listadoServicios",servicioService.findAll());
+				}
+			}
+			else {
+				model.addAttribute("info","Ingrese un nommbre");
+				model.addAttribute("listadoServicios",servicioService.findAll());
+			}
+		} catch (Exception e) {
+			model.addAttribute("error",e.getMessage());
+		}
+		
+		return "/service/list";
+	}
+	
+	
+	
+	
+	
 	@GetMapping("/details/{id}")
 	public String detallesServicoPorId(@PathVariable(value="id") Integer id,
 			Model model) {

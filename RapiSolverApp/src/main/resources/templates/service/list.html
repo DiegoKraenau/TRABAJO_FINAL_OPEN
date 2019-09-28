@@ -48,6 +48,18 @@
 							</div>
 						</div>
 					</form>
+					<form th:action="@{/service/searchByServiceCategory}" method="get">
+						<div class="row">
+							<div class="col-8">
+								<input id="inputDni" type="text"
+								class="form-control" name="servicioCategoria"
+								placeholder="Buscar por Categoria">
+							</div>
+							<div class="col">
+								<button type="submit" class="btn btn-danger">Buscar</button>
+							</div>
+						</div>
+					</form>
 					
 				</div>
 				<div class="table responsive">

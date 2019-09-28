@@ -21,5 +21,11 @@ public class SupplierController {
 		
 		return "/supplier/principal";
 	}
+	@GetMapping("/perfil")
+	public String MostrarPerfil(Model model) {
+		
+		
+		return "/supplier/perfil";
+	}
 	
 }

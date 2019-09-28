@@ -57,7 +57,7 @@ public class ServiceController {
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "redirect:/service/list";
+		return "redirec/service/list";
 	}
 	
 	@GetMapping("/list")

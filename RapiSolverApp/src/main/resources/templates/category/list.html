@@ -14,7 +14,7 @@
     			<a class="navbar-brand" th:href="@{/supplier/principal}">RapiSolver</a>
     			<ul class="navbar-nav mr-auto mt-2 mt-lg-0 "> 
     				<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" th:href="@{/supplier/sesion}">Mi perfil</a>
+            			<a class="nav-link js-scroll-trigger" th:href="@{/supplier/perfil}">Mi perfil</a>
           			</li>
           			<li class="nav-item">
             			<a class="nav-link js-scroll-trigger" th:href="@{/service/list}">Buscar Servicio</a>
@@ -36,6 +36,7 @@
 			<form th:action="@{/category/nuevo}" method="get">
 				<button type="sumbit" class="btn btn-success">Registrar</button>
 			</form>
+			<br>
 			<!--<div><a href="@{/category/nuevo}" class="btn btn-success">Registrar</a></div>-->
 			<div class="table responsive">
 				<table class="table table-striped">
@@ -56,7 +57,7 @@
 		</div>
 		</div>
 	</div>
-	<footer th:replace="layout/layout :: footer"></footer>
+	
 </body>
 
 

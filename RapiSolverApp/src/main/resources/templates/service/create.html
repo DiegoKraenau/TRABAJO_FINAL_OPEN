@@ -26,7 +26,7 @@
     			<a class="navbar-brand" th:href="@{/supplier/principal}">RapiSolver</a>
     			<ul class="navbar-nav mr-auto mt-2 mt-lg-0 "> 
     				<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" th:href="@{/supplier/sesion}">Mi perfil</a>
+            			<a class="nav-link js-scroll-trigger" th:href="@{/supplier/perfil}">Mi perfil</a>
           			</li>
           			<li class="nav-item">
             			<a class="nav-link js-scroll-trigger" th:href="@{/service/list}">Buscar Servicio</a>
@@ -48,11 +48,11 @@
     
     	
 	<form id="formulario" th:action="@{/service/guardar}" th:object="${servicio}" method="post">
-		<div class="form-group col-lg-3 col-md-3 col-xs-12">
+		<div class="form-group">
     		<label for="exampleFormControlSelect1">Categoria</label>
-    		<select class="form-control" id="exampleFormControlSelect1" th:field="*{serviceCategory.categoryId}">
+    		<select class="form-control col-lg-3 col-md-3 col-xs-12" id="exampleFormControlSelect1" th:field="*{serviceCategory.categoryId}">
       			<option th:each="categoria:${categorias}" th:value="${categoria.categoryId}" th:text="${categoria.categoryName}"></option>
-    </select>
+   			 </select>
   		</div>
 		<div class="form-group" >
 			<label >Nombre:</label> <input

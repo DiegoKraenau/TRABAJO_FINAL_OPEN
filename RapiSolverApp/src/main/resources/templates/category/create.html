@@ -14,7 +14,7 @@
     			<a class="navbar-brand" th:href="@{/supplier/principal}">RapiSolver</a>
     			<ul class="navbar-nav mr-auto mt-2 mt-lg-0 "> 
     				<li class="nav-item">
-            			<a class="nav-link js-scroll-trigger" th:href="@{/supplier/sesion}">Mi perfil</a>
+            			<a class="nav-link js-scroll-trigger" th:href="@{/supplier/perfil}">Mi perfil</a>
           			</li>
           			<li class="nav-item">
             			<a class="nav-link js-scroll-trigger" th:href="@{/service/list}">Buscar Servicio</a>
@@ -34,15 +34,15 @@
     	<br>
     	<br>
 	<div class="container">
-		<form th:action="@{/category/guardar}" th:object="${category}" method="post">
-			<div class="form-group col-md-6">
-    			<label for="nombreCategoria">Nombre de Categoria</label>
+		<form th:action="@{/category/guardar}" th:object="${category}" method="post" class="form-group col-md-6">
+			<div class="form-group">
+    			<h2>Crear Categoria:</h2><br>
     			<input type="text" th:field="*{categoryName}" class="form-control" id="nombreCategoria" placeholder="Ingrese nombre de categoria">
   			</div>
   			<button type="submit" class="btn btn-primary">Registrar Categoria</button>
   		</form>	
 	</div>
-	<footer th:replace="layout/layout :: footer"></footer>
+	
 </body>
 
 </html>

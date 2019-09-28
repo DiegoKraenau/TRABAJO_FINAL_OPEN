@@ -1,5 +1,6 @@
 package edu.rapisolver.rapisolverApp.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.rapisolver.rapisolverApp.entities.DetalleServiceSupplier;
+import edu.rapisolver.rapisolverApp.entities.ServiceCategory;
 import edu.rapisolver.rapisolverApp.entities.Servicio;
 import edu.rapisolver.rapisolverApp.service.IDetalleServicieSupplierService;
+import edu.rapisolver.rapisolverApp.service.IServiceCategoryService;
 import edu.rapisolver.rapisolverApp.service.IServiceService;
 
 @Controller
@@ -23,6 +26,9 @@ public class ServiceController {
 
 	@Autowired
 	private IServiceService servicioService;
+	
+	@Autowired
+	private IServiceCategoryService servicioCategory;
 	
 	//@Autowired
 	//private ISupplierService supplierService;
@@ -35,6 +41,11 @@ public class ServiceController {
 		
 		Servicio servicio = new Servicio();
 		model.addAttribute("servicio", servicio);
+		try {
+		model.addAttribute("categorias", servicioCategory.findAll());
+		}catch(Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}
 		return "/service/create";
 	}
 	

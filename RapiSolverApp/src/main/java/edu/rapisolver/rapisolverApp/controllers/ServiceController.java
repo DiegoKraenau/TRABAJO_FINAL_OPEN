@@ -30,25 +30,27 @@ public class ServiceController {
 	@Autowired
 	private IDetalleServicieSupplierService detalleService;
 	
-	@GetMapping("/create")
-	public String registrarServicio(Model model) {
+	@GetMapping("/nuevo")
+	public String nuevoServicio(Model model) {
 		
+		Servicio servicio = new Servicio();
+		model.addAttribute("servicio", servicio);
 		return "/service/create";
 	}
 	
-	@PostMapping("/create")
-	public String registrarServicio(Model model, Servicio s) {
+	@PostMapping("/guardar")
+	public String guardarServicio(Model model, Servicio s) {
 		
 		try {
 			model.addAttribute("registroServicios", servicioService.save(s));
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "/service/list";
+		return "redirect:/service/list";
 	}
 	
 	@GetMapping("/list")
-	public String listarAlumnos(Model model) {
+	public String listarServicios(Model model) {
 		
 		try {
 			model.addAttribute("listadoServicios", servicioService.findAll());
@@ -85,7 +87,7 @@ public class ServiceController {
 	}
 	
 	@GetMapping("/details/{id}")
-	public String detallesAlumnoPorId(@PathVariable(value="id") Integer id,
+	public String detallesServicoPorId(@PathVariable(value="id") Integer id,
 			Model model) {
 		try {
 			Optional<Servicio> servicio = servicioService.findById(id);

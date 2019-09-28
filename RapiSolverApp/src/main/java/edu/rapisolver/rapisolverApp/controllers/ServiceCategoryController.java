@@ -17,23 +17,24 @@ public class ServiceCategoryController {
 	@Autowired
 	private IServiceCategoryService serviceCategory;
 	
-	@GetMapping("/create")
-	public String registrarServicio(Model model) {
+	@GetMapping("/nuevo")
+	public String nuevaCategoria(Model model) {
 		
-		//ServiceCategory category = new ServiceCategory();
-		//model.addAttribute("category",category);
+		ServiceCategory category = new ServiceCategory();
+		model.addAttribute("category",category);
+		model.addAttribute("title", "nueva Categoria");
 		return "/category/create";
 	}
 	
-	@PostMapping("/create")
-	public String registrarCategoria(Model model, ServiceCategory sc) {
+	@PostMapping("/guardar")
+	public String guardarCategoria(Model model, ServiceCategory category) {
 		
 		try {
-			model.addAttribute("registrarCategorias", serviceCategory.save(sc));
+			model.addAttribute("registrarCategorias", serviceCategory.save(category));
 		} catch (Exception e) {
 			model.addAttribute("error", e.getMessage());
 		}
-		return "/category/list";
+		return "redirect:/category/list";
 	}
 	
 	@GetMapping("/list")

@@ -54,10 +54,4 @@ public class ServiceServiceImpl implements IServiceService {
 		return serviceRepository.findByserviceName(serviceName);
 	}
 
-	
-
-
-
-	
-
 }

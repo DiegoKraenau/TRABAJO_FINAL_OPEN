@@ -7,7 +7,10 @@
 		<div class="card">
 		<div class="card-header text-white bg-secondary">Lista de categorias</div>
 		<div class="card-body">
-			<div><a href="@{/category/create}" class="btn btn-success">Registrar</a></div>
+			<form th:action="@{/category/nuevo}" method="get">
+				<button type="sumbit" class="btn btn-success">Registrar</button>
+			</form>
+			<!--<div><a href="@{/category/nuevo}" class="btn btn-success">Registrar</a></div>-->
 			<div class="table responsive">
 				<table class="table table-striped">
 					<thead class="thead-dark">
